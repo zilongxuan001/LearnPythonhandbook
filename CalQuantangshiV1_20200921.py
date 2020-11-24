@@ -1,0 +1,24 @@
+#CalQuantangshiV1.py
+
+import jieba
+def getText():
+    txt = open("quantangshi.txt", "r", encoding = "utf-8").read()
+    txt = txt.lower()
+    for ch in '!"#$%&()*+,-./:;<=>?@[\\]^_`{|}~1234567890]】【':
+        txt = txt.replace(ch, " ")
+    return txt
+
+
+
+words = jieba.lcut(getText())
+counts = {}
+for word in words:
+    if len(word) ==1:
+        continue
+    else:
+        counts[word] = counts.get(word,0) +1
+items = list(counts.items())
+items.sort(key=lambda x:x[1],reverse=True)
+for i in range(15):
+    word, count = items[i]
+    print("{0:<10}{1:>5}".format(word,count))

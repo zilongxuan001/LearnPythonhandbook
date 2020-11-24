@@ -1,0 +1,6 @@
+print("That is \\.")
+print("Just say \'.")
+print("You also can use \".")
+print("There is a \a.")
+print("Say too more \b.")
+print("I'm split\f a line.")
